@@ -96,6 +96,10 @@ some specific examples of what plait.py can do:
 ### cloning the repo for development
 
     git clone https://github.com/plaitpy/plaitpy
+	
+	python.exe -m venv venv
+	venv\Scripts\activate
+	pip install PyYAML
 
     # get the fakerb repo
     git submodule init
