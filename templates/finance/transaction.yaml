@@ -1,4 +1,7 @@
 fields:
+  currency:
+    value: EUR/USD
+
   maturity:
     mixture:
       - value: 1Y
