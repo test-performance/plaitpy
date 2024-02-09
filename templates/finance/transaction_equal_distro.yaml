@@ -1,0 +1,20 @@
+fields:
+  maturity:
+    mixture:
+      - value: 1Y
+        weight: 28
+      - value: 5Y
+        weight: 14
+      - value: 6M
+        weight: 58
+
+  _base:
+        mixture:
+          - value: 200000
+            weight: 77
+          - value: 1000000
+            weight: 19
+          - value: 10000000
+            weight: 4
+  amount:
+     lambda: random.gauss(this._base * 1.1, this._base * 0.1)

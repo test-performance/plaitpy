@@ -1,0 +1,51 @@
+fields:
+  maturity:
+    mixture:
+      - value: 1Y
+        weight: 23
+      - value: 5Y
+        weight: 11
+      - value: 6M
+        weight: 66
+
+  _base6M:
+        mixture:
+          - value: 200000
+            weight: 96
+          - value: 1000000
+            weight: 3
+          - value: 10000000
+            weight: 1
+
+  _base1Y:
+        mixture:
+          - value: 200000
+            weight: 95
+          - value: 1000000
+            weight: 4
+          - value: 10000000
+            weight: 1
+
+  _base5Y:
+        mixture:
+          - value: 200000
+            weight: 48 
+          - value: 1000000
+            weight: 38
+          - value: 10000000
+            weight: 14
+
+
+  _base:
+    switch:  
+      - onlyif: this.maturity == "6M"
+        lambda: this._base6M
+      - onlyif: this.maturity == "1Y"
+        lambda: this._base1Y
+      - onlyif: this.maturity == "5Y"
+        lambda: this._base5Y
+      - default: 
+        value: 0  
+        
+  amount:
+     lambda: random.gauss(this._base * 1.1, this._base * 0.1)
